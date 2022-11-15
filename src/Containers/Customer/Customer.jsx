@@ -93,6 +93,9 @@ function Customer() {
             {filteredCustomers.map((customer, index) => {
               return <CustomerCard key={index} customer={customer} />;
             })}
+            {filteredCustomers.length === 0 && (
+              <div className={styles.noCustomer}>No Customer Found</div>
+            )}
           </div>
         </div>
       </div>

@@ -19,6 +19,15 @@
     border-radius: 5px;
     display: flex;
     align-items: center;
+}.noCustomer{
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 17px;
+    color: #BBBBBB;
+    margin: 0px;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    font-family: 'montserrat', sans-serif;
 }
 .searchBar select{
  border: none;
