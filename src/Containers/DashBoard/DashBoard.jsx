@@ -4,8 +4,17 @@ function DashBoard() {
   return (
     <div>
       {" "}
-      <div className={styles.header}>HILO DESIGNS</div>
-      <SideBar />
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "row",
+        }}
+      >
+        <SideBar />
+        <div className={styles.mainWrapper}>
+          <div className={styles.header}>Dashboard</div>
+        </div>
+      </div>
     </div>
   );
 }

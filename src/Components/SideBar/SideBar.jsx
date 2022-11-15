@@ -8,24 +8,29 @@ function SideBar() {
       icon: "dashboard.svg",
     },
     {
-      name: "Dashboard",
-      to: "/dashboard",
-      icon: "dashboard.svg",
+      name: "Design",
+      to: "/design",
+      icon: "design.svg",
     },
     {
-      name: "Dashboard",
-      to: "/dashboard",
-      icon: "dashboard.svg",
+      name: "Customer",
+      to: "/customer",
+      icon: "customer.svg",
     },
     {
-      name: "Dashboard",
-      to: "/dashboard",
-      icon: "dashboard.svg",
+      name: "Orders",
+      to: "/orders",
+      icon: "orders.svg",
     },
     {
-      name: "Dashboard",
-      to: "/dashboard",
-      icon: "dashboard.svg",
+      name: "Payouts",
+      to: "/payouts",
+      icon: "payout.svg",
+    },
+    {
+      name: "Inspiration ",
+      to: "/inspiration ",
+      icon: "inspiration.svg",
     },
   ];
   return (
@@ -33,12 +38,8 @@ function SideBar() {
       {" "}
       <div
         style={{
-          position: "absolute",
-          left: 0,
-          top: 0,
           backgroundColor: "#C39971",
           width: "max-content",
-
           minHeight: "100vh",
         }}
       >
