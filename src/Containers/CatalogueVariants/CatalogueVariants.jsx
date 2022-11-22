@@ -1,13 +1,9 @@
-import React from 'react'
-import { useState, useEffect } from "react";
+import React, {useState} from 'react'
+import styles from "./CatalogueVariants.module.css";
 import SideBar from "../../Components/SideBar";
-import styles from "./CatalogueDetails.module.css";
-import CatalogueDetailsCard from '../../Components/CatalogueDetailsCard';
+import CatalogueVariantCard from '../../Components/CatalogueVariantCard/CatalogueVariantCard';
 
-import searchIcon from "../../Assets/SearchBar/Icons/search.svg";
-
-const Catalogue = () => {
-
+const CatalogueVariants = () => {
     const catalogue = 
         {
             "id": 7829939454195,
@@ -347,20 +343,9 @@ const Catalogue = () => {
             }
         }
 
-    //   const [information, setInformation] = useState({});
-    //     useEffect((e) => {
-    //         setInformation({
-    //         ProductName: catalogue.title,
-    //         SKU: catalogue.variants[0].sku,
-    //         Price: catalogue.variants[0].price,
-    //         ProductID: catalogue.variants[0].product_id,
-    //         Type: catalogue.product_type,
-    //         Status: catalogue.status,
-    //         });
-    //     },[]);
-    return (
-        <div>
-          {" "}
+  return (
+    <div>
+        {" "}
           <div
             style={{
               display: "flex",
@@ -375,17 +360,18 @@ const Catalogue = () => {
 
                 <div className={styles.header2Wapper}>
                     <div>
-                        <p className={styles.header}>{catalogue.variants[0].sku}</p>
-                        <p className={styles.title}>{catalogue.title}</p>
+                        <p className={styles.header}>catalogue.variants</p>
+                        <p className={styles.title}>catalogue.title</p>
                     </div>
                     <button className={styles.btn}>Edit</button>
                 </div>
-                
-                <CatalogueDetailsCard catalogue={catalogue}/>
+                <div className={styles.topWrapper}>
+                    <CatalogueVariantCard catalogue={catalogue.variants}/>
+                </div>
             </div>
-          </div>
         </div>
-      );
+    </div>
+  )
 }
 
-export default Catalogue
+export default CatalogueVariants
