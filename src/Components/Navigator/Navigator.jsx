@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 // Styles
 import styles from "./Navigator.module.css";
 
-function Navigator({ name, to, icon }) {
+function Navigator({ name, to }) {
   const [active, setActive] = React.useState(
     window.location.pathname === to ? true : false
   );
@@ -30,13 +30,6 @@ function Navigator({ name, to, icon }) {
           color: active ? "#C39971" : "#543925",
         }}
       >
-        <img
-          src={`/src/assets/SideBar/Icons/${
-            active ? "Active" : "InActive"
-          }/${icon}`}
-          alt={name}
-        />
-
         <div>{name}</div>
         <div>&nbsp;</div>
         <div>&nbsp;</div>

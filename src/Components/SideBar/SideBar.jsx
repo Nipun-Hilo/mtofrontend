@@ -5,32 +5,32 @@ function SideBar() {
     {
       name: "Dashboard",
       to: "/dashboard",
-      icon: "dashboard.svg",
+
     },
     {
-      name: "Design",
-      to: "/design",
-      icon: "design.svg",
+      name: "Catalogue",
+      to: "/catalogue",
+
     },
     {
       name: "Customer",
       to: "/customer",
-      icon: "customer.svg",
+
+    },
+    {
+      name: "Production",
+      to: "/production",
+
     },
     {
       name: "Orders",
       to: "/orders",
-      icon: "orders.svg",
+
     },
     {
-      name: "Payouts",
-      to: "/payouts",
-      icon: "payout.svg",
-    },
-    {
-      name: "Inspiration ",
-      to: "/inspiration ",
-      icon: "inspiration.svg",
+      name: "Vendor Orders ",
+      to: "/vendororders ",
+
     },
   ];
   return (
@@ -50,7 +50,6 @@ function SideBar() {
             key={index}
             name={navigator.name}
             to={navigator.to}
-            icon={navigator.icon}
           />
         ))}
       </div>
