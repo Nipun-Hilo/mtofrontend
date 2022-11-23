@@ -5,6 +5,8 @@ import {Link } from "react-router-dom";
 
 function CatalogueCard({ catalogue }) {
   const [information, setInformation] = useState({});
+  // console.log(catalogue.image.src)
+  const imageSrc = catalogue.image ? catalogue.image.src : "https://images.unsplash.com/photo-1528458909336-e7a0adfed0a5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2548&q=80k";
   useEffect((e) => {
     setInformation({
       ProductName: catalogue.title,
@@ -13,14 +15,17 @@ function CatalogueCard({ catalogue }) {
       ProductID: catalogue.variants[0].product_id,
       Type: catalogue.product_type,
       Status: catalogue.status,
+      Image: imageSrc
     });
   },[]);
+
+
   let nameArr = String(catalogue.title).split(" ");
   let typeArr = String(catalogue.product_type).split(" ");
   return (
     <div>
       <div className={styles.cardWrapper}>
-        <img src={catalogue.image.src} />
+        <img src={information.Image} alt="Image not Found"/>
         <div className={styles.mainWrapper}>
             <div className={styles.info}>
               <div className={styles.lable}>Product Name</div>

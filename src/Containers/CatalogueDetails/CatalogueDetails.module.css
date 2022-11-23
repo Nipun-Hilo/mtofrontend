@@ -7,6 +7,14 @@
     padding: 20px;
     color: #543925;
 }
+.topWrapper{
+    height: 990px;
+    width: 1550px;
+    border-radius: 9px;
+    margin: 20px;
+    background: #FFFFFF;
+    box-shadow: -1px 1px 12px rgba(0, 0, 0, 0.25);
+}
 .title{
     font-family: 'Montserrat', sans-serif;
     font-weight: 600;

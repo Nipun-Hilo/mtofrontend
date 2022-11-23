@@ -380,8 +380,12 @@ const Catalogue = () => {
                     </div>
                     <button className={styles.btn}>Edit</button>
                 </div>
-                
-                <CatalogueDetailsCard catalogue={catalogue}/>
+                <div>
+                    
+                </div>
+                <div className={styles.topWrapper}>
+                    <CatalogueDetailsCard catalogue={catalogue}/>
+                </div>
             </div>
           </div>
         </div>
