@@ -1,4 +1,5 @@
 import React from 'react'
+import VariantCard from '../VariantCard/VariantCard';
 import styles from "./CatalogueVariantCard.module.css";
 
 const CatalogueVariantCard = ({catalogue}) => {
@@ -12,16 +13,15 @@ const CatalogueVariantCard = ({catalogue}) => {
                 <span className={styles.menuItem}>Price</span>
                 <span className={styles.menuItem}>Quantity</span>
                 <span className={styles.menuItem}>SKU</span>
+                <span className={styles.menuItem}>{" "}</span>
             </div>
             <hr className={styles.hr}/>
 
             <div className={styles.dataWrapper}>
                 {catalogue.map((item)=>(
                     <div>
-                        <span className={styles.menuItem}>{item.title}</span>
-                        <span className={styles.menuItem}> {item.price} </span>
-                        <span className={styles.menuItem}> {item.inventory_quantity} </span>
-                        <span className={styles.menuItem}> {item.sku} </span>
+                        <VariantCard item = {item}/>
+                        <hr className={styles.hr}/>
                     </div>
                 ))}
             </div>

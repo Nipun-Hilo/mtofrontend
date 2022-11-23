@@ -41,6 +41,7 @@ function SideBar() {
           backgroundColor: "#C39971",
           width: "max-content",
           minHeight: "100vh",
+          height:"100%"
         }}
       >
         {" "}
