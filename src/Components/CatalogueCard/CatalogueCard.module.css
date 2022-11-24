@@ -15,6 +15,7 @@
     border-radius: 5px;
     width: max-content;
     margin: 30px;
+    cursor: pointer;
     /* width: 350px; */
 }
 .cardWrapper .details{

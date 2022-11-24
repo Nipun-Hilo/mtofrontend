@@ -3,6 +3,9 @@ import React from 'react'
 import { useState, useEffect } from "react";
 import axios from 'axios';
 import { useSelector, useDispatch } from 'react-redux'
+import { useNavigate } from "react-router-dom";
+
+
 // Components and Service
 import { getProducts } from "../../Service/catalogue.service";
 import SideBar from "../../Components/SideBar";
@@ -16,6 +19,7 @@ const Catalogue = () => {
     const [catalogue, setCatalogue] = useState([])
     const [loading, setLoading] = useState(true);
     const token = useSelector(state => state.login.token)
+    const navigate = useNavigate();
 
       useEffect(() => {
         const fetchData = async () =>{
@@ -84,7 +88,7 @@ const Catalogue = () => {
         
                 <div className={styles.catalogueCard}>
                     {catalogue.map((catalogue, index) => {
-                    return <CatalogueCard key={index} catalogue={catalogue} />;
+                        return <CatalogueCard key={index} catalogue={catalogue}/>;
                     })}
                     {filteredCatalogue.length === 0 && (
                     <div className={styles.noCatalogue}>No Catalogue Found</div>

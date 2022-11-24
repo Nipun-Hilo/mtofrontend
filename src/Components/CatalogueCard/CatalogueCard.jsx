@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
 import styles from "./CatalogueCard.module.css";
 import axios from "axios";
-import {Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+
 
 function CatalogueCard({ catalogue }) {
   const [information, setInformation] = useState({});
-  // console.log(catalogue.image.src)
+  const navigate = useNavigate();
   const imageSrc = catalogue.image ? catalogue.image.src : "https://images.unsplash.com/photo-1528458909336-e7a0adfed0a5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2548&q=80k";
   useEffect((e) => {
     setInformation({
@@ -23,7 +24,7 @@ function CatalogueCard({ catalogue }) {
   let nameArr = String(catalogue.title).split(" ");
   let typeArr = String(catalogue.product_type).split(" ");
   return (
-    <div>
+    <div onClick={(e)=>navigate(`/catalogue/${information.ProductID}/details`)}>
       <div className={styles.cardWrapper}>
         <img src={information.Image} alt="Image not Found"/>
         <div className={styles.mainWrapper}>
