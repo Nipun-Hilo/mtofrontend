@@ -15,8 +15,8 @@ function App() {
         <Route exact path="/dashboard" element={<DashBoard />} />
         <Route exact path="/customer" element={<Customer />} />
         <Route exact path="/catalogue" element={<Catalogue />} />
-        <Route exact path="/cataloguedesc" element={<CatalogueDesc />} />
         <Route exact path="/cataloguevariants" element={<CatalogueVariants />} />
+        <Route exact path="/catalogue/:product_id/description" element={<CatalogueDesc />} />
         <Route exact path="/catalogue/:product_id/details" element={<CatalogueDetails />} />
       </Routes>
     </div>

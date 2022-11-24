@@ -1,10 +1,14 @@
 import React, {useState} from 'react'
+import { useParams } from 'react-router-dom';
 import styles from "./CatalogueDesc.module.css";
 import SideBar from "../../Components/SideBar";
+
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
+import CatalogueNavTab from '../../Components/CatalogueNavTab';
 const CatalogueDesc = () => {
     const [value, setValue] = useState('');
+    const { product_id } = useParams();
   return (
     <div>
         {" "}
@@ -19,7 +23,7 @@ const CatalogueDesc = () => {
                 <div className={styles.header}>
                     Catalogue
                 </div>
-
+                <CatalogueNavTab/>
                 <div className={styles.header2Wapper}>
                     <div>
                         <p className={styles.header}>catalogue.variants</p>

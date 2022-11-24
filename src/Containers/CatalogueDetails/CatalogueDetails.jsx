@@ -6,6 +6,7 @@ import axios from 'axios';
 import SideBar from "../../Components/SideBar";
 import styles from "./CatalogueDetails.module.css";
 import CatalogueDetailsCard from '../../Components/CatalogueDetailsCard';
+import CatalogueNavTab from "../../Components/CatalogueNavTab";
 import { useParams } from 'react-router-dom';
 import searchIcon from "../../Assets/SearchBar/Icons/search.svg";
 
@@ -37,36 +38,37 @@ const Catalogue = () => {
 
     return (
         <div>
-            {loading ? <>loading</> : <><div>
-                    <div
-                        style={{
-                            display: "flex",
-                            flexDirection: "row",
-                        }}
-                    >
-                        <SideBar />
-                        <div className={styles.mainWrapper}>
-                            <div className={styles.header}>
-                                Catalogue
-                            </div>
-
-                            <div className={styles.header2Wapper}>
-                                <div>
-                                    <p className={styles.header}>{catalogue?.variants[0]?.sku}</p>
-                                    <p className={styles.title}>{catalogue?.title}</p>
-                                </div>
-                                <button className={styles.btn}>Edit</button>
-                            </div>
-                            <div>
-
-                            </div>
-                            <div className={styles.topWrapper}>
-                                <CatalogueDetailsCard catalogue={catalogue || {}} />
-                            </div>
-                        </div>
+            <div
+                style={{
+                    display: "flex",
+                    flexDirection: "row"
+                }}
+            >
+                <SideBar />
+                <div className={styles.mainWrapper}>
+                    <div className={styles.header}>
+                        Catalogue
                     </div>
-                </div></>}
+                    <CatalogueNavTab/>
+                    {loading ? <><h1>loading</h1></> : <>
+                        <div className={styles.header2Wapper}>
+                            <div>
+                                <p className={styles.header}>{catalogue?.variants[0]?.sku}</p>
+                                <p className={styles.title}>{catalogue?.title}</p>
+                            </div>
+                            <button className={styles.btn}>Edit</button>
+                        </div>
+                        <div>
+
+                        </div>
+                        <div className={styles.topWrapper}>
+                            <CatalogueDetailsCard catalogue={catalogue || {}} />
+                        </div>
+                    </>}
+                </div>
+            </div>
         </div>
+
     );
 }
 
