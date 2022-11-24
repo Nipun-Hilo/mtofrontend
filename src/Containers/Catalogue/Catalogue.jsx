@@ -1,23 +1,27 @@
+// Libraries
 import React from 'react'
 import { useState, useEffect } from "react";
 import axios from 'axios';
+import { useSelector, useDispatch } from 'react-redux'
+// Components and Service
 import { getProducts } from "../../Service/catalogue.service";
 import SideBar from "../../Components/SideBar";
 import styles from "./Catalogue.module.css";
 import CatalogueCard from "../../Components/CatalogueCard";
-
+//Assets
 import searchIcon from "../../Assets/SearchBar/Icons/search.svg";
 
 const Catalogue = () => {
     const [query, setQuery] = useState("style ID");
     const [catalogue, setCatalogue] = useState([])
     const [loading, setLoading] = useState(true);
+    const token = useSelector(state => state.login.token)
 
       useEffect(() => {
         const fetchData = async () =>{
           setLoading(true);
           try {
-            const {data: response} = await axios.get("http://localhost:8000/api/v1/products");
+            const {data: response} = await axios.get("http://localhost:8000/api/v1/products", { headers: {"Authorization" : `Bearer ${token}`} });
             setCatalogue(response.data.products);
           } catch (error) {
             console.error(error.message);
@@ -29,7 +33,7 @@ const Catalogue = () => {
 
     const [filteredCatalogue, setFilteredCatalogue] = useState(catalogue);
 
-    console.log(typeof catalogue)
+    
     console.log(catalogue)
 
     return (

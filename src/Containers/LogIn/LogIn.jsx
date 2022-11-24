@@ -4,9 +4,12 @@ import { useNavigate } from "react-router-dom";
 // External Libraries
 import { ToastContainer, toast } from "react-toastify";
 import Cookies from "universal-cookie";
-
+import { useSelector, useDispatch } from 'react-redux'
 // Services
 import { SignIn } from "../../Service/auth.service";
+
+//Actions
+import {loginUser} from "../../Redux/Features/login/loginSlice";
 
 // Styles
 import styles from "./LogIn.module.css";
@@ -17,9 +20,12 @@ import eye from "../../assets/LogIn/Image/eye.svg";
 import hilo from "../../assets/LogIn/Image/logo(horizontal).svg";
 import mail from "../../assets/LogIn/Image/mail.svg";
 
+
+
 function LogIn() {
   const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
+  const dispatch = useDispatch()
   useEffect(() => {
     const cookies = new Cookies();
     if (cookies.get("token")) {
@@ -36,18 +42,8 @@ function LogIn() {
       password,
     };
 
-    const res = await SignIn(reqBody);
-    if (res.status === 200) {
-      // Disucss with team
-      toast.success("Login Successful");
-      const token = res.data.token; // Disucss with team
-      const cookies = new Cookies();
-      cookies.set("token", token, { path: "/" });
-
-      navigate("/dashboard");
-    } else {
-      toast.error(res.data.message); // Disucss with team
-    }
+    dispatch(loginUser(reqBody));
+    navigate("/dashboard");
   };
 
   return (
