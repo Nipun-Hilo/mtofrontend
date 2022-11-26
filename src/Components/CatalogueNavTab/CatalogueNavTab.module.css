@@ -6,9 +6,9 @@
     font-family: 'Montserrat', sans-serif;
     font-weight: 500;
     font-size: 16px;
-    justify-content: space-between;
-    width: 400px;
-    padding: 0px 10px 0px 10px;
+    justify-content: flex-start;
+    width: auto;
+    padding: 10px 20px 10px 20px;
     background-color: white;
     color: #543925;
     margin: 16px;
@@ -25,4 +25,8 @@
     background-color: #543925;
     color: #C39971;
 }
+
+/* .navBar{
+
+} */
 

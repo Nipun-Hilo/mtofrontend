@@ -1,12 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;800&display=swap');
 
 .topWrapper{
-    height: 1100px;
-    width: 1550px;
+    height: auto;
+    width: auto;
     border-radius: 9px;
     margin: 20px;
     background: #FFFFFF;
-    box-shadow: -1px 1px 12px rgba(0, 0, 0, 0.25);
+    /* box-shadow: -1px 1px 12px rgba(0, 0, 0, 0.25); */
     /* border: 20px solid black; */
 }
 .header{
@@ -26,6 +26,8 @@
 }
 .mainWrapper{
     width: 100%;
+    height: 100%;
+    padding-bottom: 20px;
 }
 
 .header2Wapper{

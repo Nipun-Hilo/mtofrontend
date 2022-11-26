@@ -24,7 +24,7 @@ function CatalogueCard({ catalogue }) {
   let nameArr = String(catalogue.title).split(" ");
   let typeArr = String(catalogue.product_type).split(" ");
   return (
-    <div onClick={(e)=>navigate(`/catalogue/${information.ProductID}/details`)}>
+    <div onClick={(e)=>navigate(`/catalogue/${information.ProductID}`)}>
       <div className={styles.cardWrapper}>
         <img src={information.Image} alt="Image not Found"/>
         <div className={styles.mainWrapper}>

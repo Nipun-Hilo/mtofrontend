@@ -9,7 +9,7 @@
 }
 .topWrapper{
     height: 990px;
-    width: 1550px;
+    width: auto;
     border-radius: 9px;
     margin: 20px;
     background: #FFFFFF;
