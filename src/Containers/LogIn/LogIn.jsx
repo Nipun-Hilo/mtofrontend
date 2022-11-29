@@ -29,7 +29,7 @@ function LogIn() {
   useEffect(() => {
     const cookies = new Cookies();
     if (cookies.get("token")) {
-      navigate("/home");
+      navigate("/catalogue");
     }
   }, [navigate]);
 
@@ -42,7 +42,7 @@ function LogIn() {
       password,
     };
 
-    dispatch(loginUser(reqBody));
+    await dispatch(loginUser(reqBody));
     navigate("/dashboard");
   };
 

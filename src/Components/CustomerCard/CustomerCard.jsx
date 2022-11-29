@@ -1,29 +1,33 @@
 import { useEffect, useState } from "react";
 import styles from "./CustomerCard.module.css";
+import { useNavigate } from "react-router-dom";
 function CustomerCard({ customer }) {
-  const [information, setInformation] = useState({});
-  useEffect((e) => {
-    setInformation({
-      "Customer ID": customer.customerID,
-      Email: customer.email,
-      Gender: customer.gender,
-      "Phone Number": customer.phone,
-      Location: customer.location,
-      Source: customer.source,
-    });
-  });
+  // const [information, setInformation] = useState({});
+  const navigate = useNavigate();
+  // useEffect((e) => {
+  //   setInformation({
+  //     "CustomerID": customer?.id,
+  //     Email: customer?.email,
+  //     Gender: customer?.gender,
+  //     "Phone Number": customer.default_address?.phone,
+  //     Location: customer.default_address?.city,
+  //     Source: customer.source,
+  //   });
+  // });
+
+  // console.log(customer)
   return (
-    <div>
+    <div onClick={(e)=>navigate(`/customers/${customer.id}`)}>
       <div className={styles.cardWrapper}>
         <div className={styles.details}>
           <img src={customer.img} />
-          <div>{customer.name}</div>
+          <div>{customer.first_name}</div>
         </div>
         <div className={styles.mainWrapper}>
           <div className={styles.infoWrapper}>
             <div className={styles.info}>
               <div className={styles.lable}>Customer ID</div>
-              <div className={styles.value}>{customer.customerID}</div>
+              <div className={styles.value}>{customer.id}</div>
             </div>
             <div className={styles.info}>
               <div className={styles.lable}>Gender</div>
@@ -31,7 +35,7 @@ function CustomerCard({ customer }) {
             </div>
             <div className={styles.info}>
               <div className={styles.lable}>Location</div>
-              <div className={styles.value}>{customer.location}</div>
+              <div className={styles.value}>{customer.default_address?.city ? customer.default_address?.city : "N/A"}</div>
             </div>
           </div>
           <div className={styles.infoWrapper}>
@@ -41,7 +45,7 @@ function CustomerCard({ customer }) {
             </div>
             <div className={styles.info}>
               <div className={styles.lable}>Phone Number</div>
-              <div className={styles.value}>{customer.phone}</div>
+              <div className={styles.value}>{customer.default_address?.phone ? customer.default_address?.phone : "N/A"}</div>
             </div>
 
             <div className={styles.info}>

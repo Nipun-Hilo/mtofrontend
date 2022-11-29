@@ -17,7 +17,7 @@ const Catalogue = () => {
     const [query, setQuery] = useState("style ID");
     const [catalogue, setCatalogue] = useState([])
     const [loading, setLoading] = useState(true);
-    const token = useSelector(state => state.login.token)
+    const token = useSelector(state => state.login.users.token)
 
 
     useEffect(() => {
@@ -25,7 +25,6 @@ const Catalogue = () => {
             setLoading(true);
             try {
                 const response = await getProducts(token);
-                console.log(response.data)
                 setCatalogue(response.data.products);
             } catch (error) {
                 console.error(error.message);

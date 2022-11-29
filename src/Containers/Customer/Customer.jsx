@@ -1,47 +1,38 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useSelector } from 'react-redux'
 import SideBar from "../../Components/SideBar";
 import styles from "./Customer.module.css";
 import customerCard from "../../Components/CustomerCard";
 // Assets
 import searchIcon from "../../Assets/SearchBar/Icons/search.svg";
 import CustomerCard from "../../Components/CustomerCard";
+import { getCustomers } from "../../Service/customer.service";
 
 function Customer() {
   const [query, setQuery] = useState("customerID");
 
-  const customers = [
-    {
-      customerID: "CUS1783",
-      name: "Pavan Kumar",
-      location: "Hyderabad, IN",
-      img: "https://imgmedia.lbb.in/media/2021/11/618cb4bc33d6b805d05e2a2f_1636611260785.png",
-      phone: "9059997185",
-      email: "pavanmarleygun@gmail.com",
-      source: "Instagram",
-      gender: "Male",
-    },
-    {
-      customerID: "CUS1784",
-      name: "Chandan Kumar",
-      location: "Hyderabad, IN",
-      img: "https://imgmedia.lbb.in/media/2021/11/618cb4bc33d6b805d05e2a2f_1636611260785.png",
-      phone: "9375467890",
-      email: "testing@gmail.com",
-      source: "Instagram",
-      gender: "Male",
-    },
-    {
-      customerID: "CUS1785",
-      name: "Shital Kumar",
-      location: "Hyderabad, IN",
-      img: "https://imgmedia.lbb.in/media/2021/11/618cb4bc33d6b805d05e2a2f_1636611260785.png",
-      phone: "9375467890",
-      email: "testing2@gmail.com",
-      source: "Instagrams",
-      gender: "Male",
-    },
-  ];
-  const [filteredCustomers, setFilteredCustomers] = useState(customers);
+  const [customers, setCustomers] = useState([])
+  const [loading, setLoading] = useState(true);
+  const [filteredCustomers, setFilteredCustomers] = useState([]);
+  const token = useSelector(state => state.login.users.token)
+
+  useEffect(() => {
+    const fetchData = async () => {
+      setLoading(true);
+      try {
+        const response = await getCustomers(token);
+        console.log(response.data)
+        setCustomers(response.data.customers);
+        setFilteredCustomers(response.data.customers);
+      } catch (error) {
+        console.error(error.message);
+      }
+      setLoading(false);
+    }
+    fetchData();
+  }, []);
+
+
   return (
     <div>
       {" "}
@@ -88,15 +79,16 @@ function Customer() {
             />
             <img src={searchIcon} />
           </div>
-
-          <div className={styles.customerCard}>
-            {filteredCustomers.map((customer, index) => {
-              return <CustomerCard key={index} customer={customer} />;
-            })}
-            {filteredCustomers.length === 0 && (
-              <div className={styles.noCustomer}>No Customer Found</div>
-            )}
-          </div>
+          {loading ? <><h1>loading</h1></> : <>
+            <div className={styles.customerCard}>
+              {filteredCustomers.map((customer, index) => {
+                return <CustomerCard key={index} customer={customer} />;
+              })}
+              {filteredCustomers.length === 0 && (
+                <div className={styles.noCustomer}>No Customer Found</div>
+              )}
+            </div>
+          </>}
         </div>
       </div>
     </div>
