@@ -16,6 +16,8 @@ const token = localStorage.getItem('token')
     ? localStorage.getItem('token')
     : null
 
+
+
 // Generates pending, fulfilled and rejected action types
 export const loginUser = createAsyncThunk('login/loginUser', async ({ email, password }, { rejectWithValue }) => {
     const config = {
@@ -43,6 +45,25 @@ export const loginUser = createAsyncThunk('login/loginUser', async ({ email, pas
     }
 
 })
+
+// export const loadUser = () => async (dispatch) => {
+//     if (localStorage.token) {
+//       setAuthToken(localStorage.token);
+//     }
+
+//     try {
+//       const res = await axios.get("/api/auth");
+
+//       dispatch({
+//         type: USER_LOADED,
+//         payload: res.data,
+//       });
+//     } catch (err) {
+//       dispatch({
+//         type: AUTH_ERROR,
+//       });
+//     }
+//   };
 
 const loginSlice = createSlice({
     name: 'login',
