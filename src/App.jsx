@@ -5,6 +5,7 @@ import Customer from "./Containers/Customer";
 import Catalogue from "./Containers/Catalogue";
 import CatalogueDetails from "./Containers/CatalogueDetails"
 import PrivateRoute from "./Components/PrivateRoute/PrivateRoute";
+import CustomerDetails from "./Containers/CustomerDetails/CustomerDetails";
 
 import LogIn from "./Containers/LogIn";
 function App() {
@@ -13,9 +14,9 @@ function App() {
       <Routes>
         <Route exact path="/" element={<LogIn />} />
         <Route exact path="/dashboard" element={
-        <PrivateRoute>
-          <DashBoard />
-        </PrivateRoute>
+          <PrivateRoute>
+            <DashBoard />
+          </PrivateRoute>
         } />
         <Route exact path="/customer" element={<PrivateRoute>
           <Customer />
@@ -26,6 +27,11 @@ function App() {
         <Route exact path="/catalogue/:product_id" element={<PrivateRoute>
           <CatalogueDetails />
         </PrivateRoute>} />
+        <Route exact path="/customers/:customer_id" element={<PrivateRoute>
+          <CustomerDetails />
+        </PrivateRoute>} />
+
+
       </Routes>
     </div>
   );

@@ -1,13 +1,14 @@
 import axios from 'axios'
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import Cookies from "universal-cookie";
+import { SignIn } from '../../../Service/auth.service';
 
 
 const initialState = {
     token: localStorage.getItem("token"),
     isAuthenticated: null,
     loading: true,
-    user: null,
+    users: null,
 };
 
 // initialize userToken from local storage
@@ -25,9 +26,10 @@ export const loginUser = createAsyncThunk('login/loginUser', async ({ email, pas
 
     const body = JSON.stringify({ email, password });
     try {
-        const res = await axios.post('http://localhost:8000/api/v1/auth/login', body, config);
+        const res = await SignIn(body, config);
         console.log(res.data)
         localStorage.setItem('token', res.data.token)
+        localStorage.setItem("isAuthenticated", true)
         const cookies = new Cookies();
         cookies.set("token", res.data.token, { path: "/" });
         return res.data

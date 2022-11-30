@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { useSelector } from 'react-redux'
 import SideBar from "../../Components/SideBar";
 import styles from "./Customer.module.css";
-import customerCard from "../../Components/CustomerCard";
 // Assets
 import searchIcon from "../../Assets/SearchBar/Icons/search.svg";
 import CustomerCard from "../../Components/CustomerCard";

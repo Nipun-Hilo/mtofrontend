@@ -9,7 +9,7 @@ import { useSelector, useDispatch } from 'react-redux'
 // import { SignIn } from "../../Service/auth.service";
 
 //Actions
-import {loginUser} from "../../Redux/Features/login/loginSlice";
+import { loginUser } from "../../Redux/Features/login/loginSlice";
 
 // Styles
 import styles from "./LogIn.module.css";
@@ -26,12 +26,12 @@ function LogIn() {
   const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
   const dispatch = useDispatch()
-  useEffect(() => {
-    const cookies = new Cookies();
-    if (cookies.get("token")) {
-      navigate("/catalogue");
-    }
-  }, [navigate]);
+  // useEffect(() => {
+  //   const cookies = new Cookies();
+  //   if (cookies.get("token")) {
+  //     navigate("/dashboard");
+  //   }
+  // }, []);
 
   const onSubmitHandle = async (e) => {
     e.preventDefault();
@@ -43,6 +43,7 @@ function LogIn() {
     };
 
     await dispatch(loginUser(reqBody));
+
     navigate("/dashboard");
   };
 

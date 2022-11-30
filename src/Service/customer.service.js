@@ -6,3 +6,8 @@ export const getCustomers = async (token) => {
 
     return res.data
 };
+export const getCustomersById = async (customer_id, token) => {
+    const res = await axios.get(`${GET_CUSTOMERS_URL}/${customer_id}`, { headers: { "Authorization": `Bearer ${token}` } });
+
+    return res.data
+};
