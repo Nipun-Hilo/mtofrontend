@@ -40,12 +40,12 @@ const Navigators = [
 const Catalogue = () => {
     const [catalogue, setCatalogue] = useState({})
     const [loading, setLoading] = useState(true);
-    const token = useSelector(state => state.login.token)
+    const token = useSelector(state => state.login.users.token)
     const { product_id } = useParams();
     const [searchParams, setSearchParams] = useSearchParams();
     const [activeTab, setActiveTab] = useState("details");
 
-
+    console.log(token)
 
     useEffect(() => {
         const tab = searchParams.get('tab');

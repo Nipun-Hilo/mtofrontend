@@ -7,6 +7,9 @@ import { useParams } from 'react-router-dom';
 
 import SideBar from "../../Components/SideBar";
 import CatalogueNavTab from '../../Components/CatalogueNavTab';
+import CustomerDetailsCard from '../../Components/CustomerDetailsCard';
+import CustomerReadyMeasurements from '../../Components/CustomerReadyMeasurements';
+
 import styles from "./CustomerDetails.module.css";
 
 import searchIcon from "../../Assets/SearchBar/Icons/search.svg";
@@ -99,14 +102,13 @@ const CustomerDetails = () => {
 
                     </div>
                     <div className={styles.topWrapper}>
-                        {/* <CustomerDetailsCard customer={customer || {}} /> */}
-                        <div>Customer Details</div>
+                        <CustomerDetailsCard customer={customer || {}} />
                     </div>
                 </>}</>
             case 'measurements':
                 return <><div>Measurements</div></>
             case 'ready-measurements':
-                return <>ready-measurements</>
+                return <><CustomerReadyMeasurements customer={customer || {}} /></>
             case 'style-assist':
                 return <>style-assist</>
             case 'orders':
@@ -117,24 +119,27 @@ const CustomerDetails = () => {
     }
 
     return (
-        <div><div>
-            <div
-                style={{
-                    display: "flex",
-                    flexDirection: "row"
-                }}
-            >
-                <SideBar />
-                <div className={styles.mainWrapper}>
-                    <div className={styles.header}>
-                        Customers
-                    </div>
-                    <CatalogueNavTab handleChangeTab={handleChangeTab} Navigators={Navigators} activeTab={activeTab} />
-                    <div>{renderContent()}</div>
+        <div>
+            <div>
+                <div
+                    style={{
+                        display: "flex",
+                        flexDirection: "row",
+                        overflow: "hidden"
+                    }}
+                >
+                    <SideBar />
+                    <div className={styles.mainWrapper}>
+                        <div className={styles.header}>
+                            Customers
+                        </div>
+                        <CatalogueNavTab handleChangeTab={handleChangeTab} Navigators={Navigators} activeTab={activeTab} />
+                        <div>{renderContent()}</div>
 
+                    </div>
                 </div>
             </div>
-        </div></div>
+        </div>
     )
 }
 
