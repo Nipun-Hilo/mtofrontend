@@ -1,6 +1,10 @@
 import React from 'react'
 import CustomerReadyMeasurementsCard from '../CustomerReadyMeasurementsCard'
 import styles from "./CustomerReadyMeasurement.module.css"
+import CatalogueNavTab from '../../Components/CatalogueNavTab';
+
+
+
 
 const CustomerReadyMeasurements = ({ customer }) => {
     return (

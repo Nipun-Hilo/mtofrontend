@@ -6,13 +6,13 @@
     font-family: 'Montserrat', sans-serif;
     font-weight: 500;
     font-size: 16px;
-    justify-content: flex-start;
+    justify-content: space-evenly;
     width: auto;
     padding: 10px 20px 10px 20px;
     background-color: white;
     color: #543925;
     margin: 16px;
-    margin-bottom: 15px;
+    margin-bottom: 5px;
     border-radius: 5px;
     cursor: pointer;
 }
@@ -26,7 +26,19 @@
     color: #C39971;
 }
 
-/* .navBar{
+.line{
 
-} */
+    width: 1550px;
+    height: 0px;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    align-self: center;
+    justify-content: center;
+    justify-items: center;
+    margin-left: 110px;
+    background: #C39971;
+    border: 2px solid #C39971;
+
+}
 

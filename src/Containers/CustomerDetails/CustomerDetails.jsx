@@ -14,6 +14,7 @@ import styles from "./CustomerDetails.module.css";
 
 import searchIcon from "../../Assets/SearchBar/Icons/search.svg";
 import { getCustomersById } from '../../Service/customer.service';
+import CustomerMeasurements from '../CustomerMeasurements/CustomerMeasurements';
 
 const Navigators = [
     {
@@ -106,7 +107,7 @@ const CustomerDetails = () => {
                     </div>
                 </>}</>
             case 'measurements':
-                return <><div>Measurements</div></>
+                return <><CustomerMeasurements customer={customer || {}} /></>
             case 'ready-measurements':
                 return <><CustomerReadyMeasurements customer={customer || {}} /></>
             case 'style-assist':
