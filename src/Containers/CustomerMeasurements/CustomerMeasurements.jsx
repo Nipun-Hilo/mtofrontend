@@ -6,6 +6,9 @@ import { useSearchParams } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import styles from "./CustomerMeasurements.module.css"
 import CatalogueNavTab from '../../Components/CatalogueNavTab';
+import TopCard from '../../Components/MeasurementCards/TopCard/TopCard';
+import BottomCard from '../../Components/MeasurementCards/BottomCard';
+import SmartFitCard from '../../Components/MeasurementCards/SmartFitCard/SmartFitCard';
 
 
 const Navigators = [
@@ -56,11 +59,11 @@ const CustomerMeasurements = ({ customer }) => {
     const renderContent = () => {
         switch (activeTab) {
             case 'top':
-                return <><div>Dummy1</div></>
+                return <><TopCard /></>
             case 'bottom':
-                return <><div>Dummy2</div></>
+                return <><div><BottomCard /></div></>
             case 'smart-fit':
-                return <><div>Dummy3</div></>
+                return <><div><SmartFitCard /></div></>
             default:
                 break;
         }
