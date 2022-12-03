@@ -6,6 +6,7 @@ import Catalogue from "./Containers/Catalogue";
 import CatalogueDetails from "./Containers/CatalogueDetails"
 import PrivateRoute from "./Components/PrivateRoute/PrivateRoute";
 import CustomerDetails from "./Containers/CustomerDetails/CustomerDetails";
+import Orders from "./Containers/Orders/Orders";
 
 import LogIn from "./Containers/LogIn";
 function App() {
@@ -31,6 +32,9 @@ function App() {
           <CustomerDetails />
         </PrivateRoute>} />
 
+        <Route exact path="/orders" element={<PrivateRoute>
+          <Orders />
+        </PrivateRoute>} />
 
       </Routes>
     </div>
