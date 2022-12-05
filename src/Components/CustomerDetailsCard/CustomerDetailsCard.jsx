@@ -22,6 +22,9 @@ const CustomerDetailsCard = ({ customer }) => {
         });
     }, []);
 
+
+
+
     return (
         <div>
             <div className={styles.topWrapper}>

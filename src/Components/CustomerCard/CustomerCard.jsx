@@ -16,8 +16,16 @@ function CustomerCard({ customer }) {
   // });
 
   // console.log(customer)
+  let Email;
+  if (customer.email) {
+    Email = customer.email.substring(0, 15) + "...";
+  }
+  else {
+    Email = "-"
+  }
+
   return (
-    <div onClick={(e)=>navigate(`/customers/${customer.id}`)}>
+    <div onClick={(e) => navigate(`/customers/${customer.id}`)}>
       <div className={styles.cardWrapper}>
         <div className={styles.details}>
           <img src={customer.img} />
@@ -41,7 +49,7 @@ function CustomerCard({ customer }) {
           <div className={styles.infoWrapper}>
             <div className={styles.info}>
               <div className={styles.lable}>Email</div>
-              <div className={styles.value}>{customer.email}</div>
+              <div className={styles.value}>{Email}</div>
             </div>
             <div className={styles.info}>
               <div className={styles.lable}>Phone Number</div>
