@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useNavigate } from "react-router-dom";
 import SideBar from "./Components/SideBar/SideBar";
 import DashBoard from "./Containers/DashBoard";
 import Customer from "./Containers/Customer";
@@ -9,10 +9,26 @@ import CustomerDetails from "./Containers/CustomerDetails/CustomerDetails";
 import Orders from "./Containers/Orders/Orders";
 
 import LogIn from "./Containers/LogIn";
+import { useEffect } from "react";
 function App() {
+  const navigate = useNavigate();
+
+
+
+  useEffect(() => {
+    if (!localStorage.getItem("token")) {
+      navigate("/");
+    } else {
+      navigate("/dashboard")
+    }
+    return;
+  }, [])
+
+
   return (
     <div>
       <Routes>
+
         <Route exact path="/" element={<LogIn />} />
         <Route exact path="/dashboard" element={
           <PrivateRoute>

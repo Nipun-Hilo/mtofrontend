@@ -7,8 +7,10 @@ import { useParams } from 'react-router-dom';
 
 import SideBar from "../../Components/SideBar";
 import CatalogueNavTab from '../../Components/CatalogueNavTab';
+import OrderTable from '../../Components/OrderTable/OrderTable';
 
 import styles from "./Orders.module.css";
+import { getOrders } from '../../Service/order.service';
 
 const Navigators = [
     {
@@ -51,10 +53,9 @@ const Navigators = [
 ];
 
 function Orders() {
-    const [customer, setCustomer] = useState({})
+    const [order, setOrder] = useState([])
     const [loading, setLoading] = useState(false);
     const token = useSelector(state => state.login.users.token)
-    const { customer_id } = useParams();
     const [searchParams, setSearchParams] = useSearchParams();
     const [activeTab, setActiveTab] = useState("all");
 
@@ -71,23 +72,22 @@ function Orders() {
         window.history.replaceState({}, '', `${window.location.pathname}?${params.toString()}`);
     }, [activeTab])
 
-    // const fetchData = async () => {
-    //     setLoading(true);
-    //     try {
-    //         const response = await getCustomersById(customer_id, token);
-    //         setCustomer(response.data.customer);
-    //     } catch (error) {
-    //         console.error(error.message);
-    //     }
-    //     setLoading(false);
+    const fetchData = async () => {
+        setLoading(true);
+        try {
+            const response = await getOrders(token);
+            setOrder(response.data.orders);
+        } catch (error) {
+            console.error(error.message);
+        }
+        setLoading(false);
 
-    // }
+    }
 
-    // console.log(customer);
-    // useEffect(() => {
-    //     console.log("response")
-    //     fetchData();
-    // }, []);
+    useEffect(() => {
+        console.log("response")
+        fetchData();
+    }, []);
 
     const handleChangeTab = (value) => {
         setActiveTab(value)
@@ -97,7 +97,7 @@ function Orders() {
         switch (activeTab) {
             case 'all':
                 return <> {loading ? <><h1>loading</h1></> : <>
-                    <h1>Orders</h1>
+                    <h1><OrderTable orders={order} /></h1>
                 </>}</>
             case 'pending':
                 return <>pending</>

@@ -27,7 +27,7 @@
 }
 
 .line {
-	width: 1250px;
+	width: 90%;
 	height: 0px;
 	justify-content: center;
 	align-items: center;
@@ -35,7 +35,7 @@
 	align-self: center;
 	justify-content: center;
 	justify-items: center;
-	margin-left: 100px;
+	margin-left: 50px;
 	background: #c39971;
 	border: 2px solid #c39971;
 }
