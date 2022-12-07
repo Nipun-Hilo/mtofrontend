@@ -1,0 +1,19 @@
+.mainWrapper {
+	margin: 15px;
+}
+
+.root {
+	width: "100%";
+	overflow-x: "auto";
+}
+.table {
+	min-width: 650px;
+}
+.RowHeader {
+	color: #c39971 !important;
+}
+.btn {
+	border-radius: 50%;
+	cursor: pointer;
+	border: 0px #fff solid;
+}

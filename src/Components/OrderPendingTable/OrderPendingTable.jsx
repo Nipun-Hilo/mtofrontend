@@ -13,7 +13,11 @@ import Typography from '@mui/material/Typography';
 import Paper from '@mui/material/Paper';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
-import styles from "./OrderTable.module.css";
+import styles from "./OrderPendingTable.module.css";
+import GreenCheck from "../../assets/Orders/GreenCheck.svg";
+import RedCheck from "../../assets/Orders/RedCheck.svg";
+import Pencil from "../../assets/Orders/Pencil.svg";
+
 
 function Row({ order }) {
     const [open, setOpen] = React.useState(false);
@@ -34,7 +38,14 @@ function Row({ order }) {
         });
     }, []);
 
+    const onCheckButtonClick = (e) => {
+
+    }
+
     return (
+
+
+
         <React.Fragment>
 
             <TableRow sx={{ '& > *': { borderBottom: 'unset' } }}>
@@ -47,18 +58,17 @@ function Row({ order }) {
                         {open ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
                     </IconButton>
                 </TableCell>
-                <TableCell component="th" scope="row">
+                <TableCell align="right">
                     {orderItem.OrderID}
                 </TableCell>
                 <TableCell align="right">{orderItem.CustomerID}</TableCell>
-                <TableCell align="right">{orderItem.Date}</TableCell>
                 <TableCell align="right">{orderItem.CustomerName}</TableCell>
                 <TableCell align="right">{orderItem.Phone}</TableCell>
                 <TableCell align="right">{orderItem.Channel}</TableCell>
-                <TableCell align="right">{orderItem.Amount}</TableCell>
-                <TableCell align="right">{orderItem.Payment}</TableCell>
-                <TableCell align="right">{orderItem.Fullfilled}</TableCell>
-                <TableCell align="right">{orderItem.DeliveryMethod}</TableCell>
+                <TableCell align="right"><button className={styles.btn}><img src={GreenCheck} /></button></TableCell>
+                <TableCell align="right"><button className={styles.btn}><img src={RedCheck} /></button></TableCell>
+                <TableCell align="right"><button className={styles.btn}><img src={Pencil} /></button></TableCell>
+
             </TableRow>
 
             <TableRow>
@@ -112,7 +122,10 @@ function Row({ order }) {
 
 
 
-export default function OrderTable({ orders }) {
+export default function OrderPendingTable({ orders }) {
+
+    const PendingOrders = orders;
+
     return (
         <div className={styles.mainWrapper}>
             <TableContainer component={Paper}>
@@ -124,18 +137,17 @@ export default function OrderTable({ orders }) {
                             <TableCell />
                             <TableCell align="right">Order ID</TableCell>
                             <TableCell align="right">Customer ID</TableCell>
-                            <TableCell align="right">Date of Creation</TableCell>
                             <TableCell align="right">Customer Name</TableCell>
                             <TableCell align="right">Phone Number</TableCell>
                             <TableCell align="right">Channel</TableCell>
-                            <TableCell align="right">Amount</TableCell>
-                            <TableCell align="right">Payment</TableCell>
-                            <TableCell align="right">Fulfilled Status</TableCell>
-                            <TableCell align="right">Delivary Method</TableCell>
+                            <TableCell />
+                            <TableCell />
+                            <TableCell />
+                            <TableCell />
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                        {orders.map((orderItem) => (
+                        {PendingOrders.map((orderItem) => (
                             <Row order={orderItem} />
                         ))}
                     </TableBody>

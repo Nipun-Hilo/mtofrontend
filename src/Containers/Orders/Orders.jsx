@@ -11,6 +11,7 @@ import OrderTable from '../../Components/OrderTable/OrderTable';
 
 import styles from "./Orders.module.css";
 import { getOrders } from '../../Service/order.service';
+import OrderPendingTable from '../../Components/OrderPendingTable/OrderPendingTable';
 
 const Navigators = [
     {
@@ -100,7 +101,7 @@ function Orders() {
                     <h1><OrderTable orders={order} /></h1>
                 </>}</>
             case 'pending':
-                return <>pending</>
+                return <><OrderPendingTable orders={order} /></>
             case 'in-progress':
                 return <>in-progress</>
             case 'completed-partially':
