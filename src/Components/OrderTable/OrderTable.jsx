@@ -13,6 +13,7 @@ import Typography from '@mui/material/Typography';
 import Paper from '@mui/material/Paper';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
+import styles from "./OrderTable.module.css";
 
 function Row({ order }) {
     const [open, setOpen] = React.useState(false);
@@ -36,6 +37,7 @@ function Row({ order }) {
 
     return (
         <React.Fragment>
+
             <TableRow sx={{ '& > *': { borderBottom: 'unset' } }}>
                 <TableCell>
                     <IconButton
@@ -59,32 +61,37 @@ function Row({ order }) {
                 <TableCell align="right">{orderItem.Fullfilled}</TableCell>
                 <TableCell align="right">{orderItem.DeliveryMethod}</TableCell>
             </TableRow>
-            {/* <TableRow>
+            <TableRow>
                 <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
                     <Collapse in={open} timeout="auto" unmountOnExit>
                         <Box sx={{ margin: 1 }}>
-                            <Typography variant="h6" gutterBottom component="div">
-                                History
-                            </Typography>
                             <Table size="small" aria-label="purchases">
                                 <TableHead>
                                     <TableRow>
-                                        <TableCell>Date</TableCell>
-                                        <TableCell>Customer</TableCell>
-                                        <TableCell align="right">Amount</TableCell>
-                                        <TableCell align="right">Total price ($)</TableCell>
+                                        <TableCell align="right">Product Name</TableCell>
+                                        <TableCell align="right">Product ID </TableCell>
+                                        <TableCell align="right">Size</TableCell>
+                                        <TableCell align="right">Number</TableCell>
+                                        <TableCell align="right">Status</TableCell>
+                                        <TableCell align="right">Type</TableCell>
                                     </TableRow>
                                 </TableHead>
                                 <TableBody>
-                                    {row.history.map((historyRow) => (
-                                        <TableRow key={historyRow.date}>
+                                    {order.line_items.map((item) => (
+                                        <TableRow key={item.id}>
                                             <TableCell component="th" scope="row">
-                                                {historyRow.date}
+                                                {item.name}
                                             </TableCell>
-                                            <TableCell>{historyRow.customerId}</TableCell>
-                                            <TableCell align="right">{historyRow.amount}</TableCell>
+                                            <TableCell>{item.sku}</TableCell>
+                                            <TableCell align="right">{item.variant_title}</TableCell>
                                             <TableCell align="right">
-                                                {Math.round(historyRow.amount * row.price * 100) / 100}
+                                                {item.fulfillable_quantity}
+                                            </TableCell>
+                                            <TableCell align="right">
+                                                {item.fulfillment_status}
+                                            </TableCell>
+                                            <TableCell align="right">
+                                                {item.fulfillment_service}
                                             </TableCell>
                                         </TableRow>
                                     ))}
@@ -93,7 +100,8 @@ function Row({ order }) {
                         </Box>
                     </Collapse>
                 </TableCell>
-            </TableRow> */}
+            </TableRow>
+
         </React.Fragment>
     );
 }
@@ -103,29 +111,33 @@ function Row({ order }) {
 
 export default function OrderTable({ orders }) {
     return (
-        <TableContainer component={Paper}>
-            <Table aria-label="collapsible table">
-                <TableHead>
-                    <TableRow sx={{ color: "#C39971" }}>
-                        <TableCell />
-                        <TableCell align="right">Order ID</TableCell>
-                        <TableCell align="right">Customer ID</TableCell>
-                        <TableCell align="right">Date of Creation</TableCell>
-                        <TableCell align="right">Customer Name</TableCell>
-                        <TableCell align="right">Phone Number</TableCell>
-                        <TableCell align="right">Channel</TableCell>
-                        <TableCell align="right">Amount</TableCell>
-                        <TableCell align="right">Payment</TableCell>
-                        <TableCell align="right">Fulfilled Status</TableCell>
-                        <TableCell align="right">Delivary Method</TableCell>
-                    </TableRow>
-                </TableHead>
-                <TableBody>
-                    {orders.map((orderItem) => (
-                        <Row order={orderItem} />
-                    ))}
-                </TableBody>
-            </Table>
-        </TableContainer>
+        <div className={styles.mainWrapper}>
+            <TableContainer component={Paper}>
+                <Table aria-label="collapsible table">
+                    <TableHead style={{
+                        color: "#c39971"
+                    }}>
+                        <TableRow sx={{ color: "#C39971" }}>
+                            <TableCell />
+                            <TableCell align="right">Order ID</TableCell>
+                            <TableCell align="right">Customer ID</TableCell>
+                            <TableCell align="right">Date of Creation</TableCell>
+                            <TableCell align="right">Customer Name</TableCell>
+                            <TableCell align="right">Phone Number</TableCell>
+                            <TableCell align="right">Channel</TableCell>
+                            <TableCell align="right">Amount</TableCell>
+                            <TableCell align="right">Payment</TableCell>
+                            <TableCell align="right">Fulfilled Status</TableCell>
+                            <TableCell align="right">Delivary Method</TableCell>
+                        </TableRow>
+                    </TableHead>
+                    <TableBody>
+                        {orders.map((orderItem) => (
+                            <Row order={orderItem} />
+                        ))}
+                    </TableBody>
+                </Table>
+            </TableContainer>
+        </div>
     );
 }

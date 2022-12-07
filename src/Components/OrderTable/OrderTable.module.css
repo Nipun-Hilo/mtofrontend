@@ -1,3 +1,7 @@
+.mainWrapper {
+	margin: 15px;
+}
+
 .root {
 	width: "100%";
 	overflow-x: "auto";
@@ -6,5 +10,5 @@
 	min-width: 650px;
 }
 .RowHeader {
-	color: #c39971;
+	color: #c39971 !important;
 }
