@@ -1,7 +1,7 @@
 // Libraries
 import React from 'react'
 import { useState, useEffect } from "react";
-import { useSelector, useDispatch } from 'react-redux'
+import { useSelector } from 'react-redux'
 
 
 
@@ -36,9 +36,6 @@ const Catalogue = () => {
 
     const [filteredCatalogue, setFilteredCatalogue] = useState(catalogue);
 
-
-    console.log(catalogue)
-
     return (
         <div>
             <div>
@@ -60,7 +57,7 @@ const Catalogue = () => {
                                     setQuery(e.target.value);
                                 }}
                             >
-                                <option value="style ID">Style ID</option>
+                                <option value="Style ID">Style ID</option>
 
                             </select>
                             <input

@@ -7,6 +7,7 @@ import CatalogueDetails from "./Containers/CatalogueDetails"
 import PrivateRoute from "./Components/PrivateRoute/PrivateRoute";
 import CustomerDetails from "./Containers/CustomerDetails/CustomerDetails";
 import Orders from "./Containers/Orders/Orders";
+import VendorOrder from "./Containers/VendorOrders/VendorOrder";
 
 import LogIn from "./Containers/LogIn";
 import { useEffect } from "react";
@@ -50,6 +51,9 @@ function App() {
 
         <Route exact path="/orders" element={<PrivateRoute>
           <Orders />
+        </PrivateRoute>} />
+        <Route exact path="/vendororders" element={<PrivateRoute>
+          <VendorOrder />
         </PrivateRoute>} />
 
       </Routes>

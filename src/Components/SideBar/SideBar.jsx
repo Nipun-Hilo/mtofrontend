@@ -1,5 +1,6 @@
 import Navigator from "../Navigator";
 import styles from "./SideBar.module.css";
+import Logo from "../../assets/SideBar/Logo.svg"
 function SideBar() {
   const Navigators = [
     {
@@ -28,6 +29,11 @@ function SideBar() {
 
     },
     {
+      name: "Orders Confirmation",
+      to: "/ordersconfirmation",
+
+    },
+    {
       name: "Vendor Orders ",
       to: "/vendororders ",
 
@@ -41,11 +47,11 @@ function SideBar() {
           backgroundColor: "#C39971",
           width: "max-content",
           minHeight: "100vh",
-          height:"100%"
+          height: "100%"
         }}
       >
         {" "}
-        <div className={styles.header}>&nbsp;</div>
+        <div className={styles.header}><img src={Logo} className={styles.logo} /></div>
         {Navigators.map((navigator, index) => (
           <Navigator
             key={index}
