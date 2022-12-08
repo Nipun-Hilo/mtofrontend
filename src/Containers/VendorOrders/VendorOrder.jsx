@@ -1,4 +1,5 @@
 import SideBar from "../../Components/SideBar";
+import VendorBase from "../../Components/VendorBase/VendorBase";
 import styles from "./VendorOrder.module.css";
 function VendorOrder() {
     return (
@@ -40,6 +41,7 @@ function VendorOrder() {
                             Photo
                         </div>
                     </div>
+                    <VendorBase />
                 </div>
             </div>
         </div >
