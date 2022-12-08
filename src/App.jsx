@@ -8,9 +8,11 @@ import PrivateRoute from "./Components/PrivateRoute/PrivateRoute";
 import CustomerDetails from "./Containers/CustomerDetails/CustomerDetails";
 import Orders from "./Containers/Orders/Orders";
 import VendorOrder from "./Containers/VendorOrders/VendorOrder";
+import Production from "./Containers/Production/Production";
 
 import LogIn from "./Containers/LogIn";
 import { useEffect } from "react";
+import ProductionDetails from "./Containers/ProductionDetails/ProductionDetails";
 function App() {
   const navigate = useNavigate();
 
@@ -54,6 +56,12 @@ function App() {
         </PrivateRoute>} />
         <Route exact path="/vendororders" element={<PrivateRoute>
           <VendorOrder />
+        </PrivateRoute>} />
+        <Route exact path="/production" element={<PrivateRoute>
+          <Production />
+        </PrivateRoute>} />
+        <Route exact path="/production/:product_id" element={<PrivateRoute>
+          <ProductionDetails />
         </PrivateRoute>} />
 
       </Routes>

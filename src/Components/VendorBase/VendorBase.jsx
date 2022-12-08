@@ -41,15 +41,15 @@ const VendorBase = () => {
 
                 <div className={styles.costElements}>
                     <div className={styles.lable}>Total</div>
-                    <input type="text" placeholder='Total' className={styles.costInput} />
+                    <input type="number" placeholder='Total' className={styles.costInput} />
                 </div>
                 <div className={styles.costElements}>
                     <div className={styles.lable}>Total Cost</div>
-                    <input type="text" placeholder='Total Cost' className={styles.costInput} />
+                    <input type="number" placeholder='Total Cost' className={styles.costInput} />
                 </div>
                 <div className={styles.costElements}>
                     <div className={styles.lable}>Cost Per Piece</div>
-                    <input type="text" placeholder='Cost Per Piece' className={styles.costInput} />
+                    <input type="number" placeholder='Cost Per Piece' className={styles.costInput} />
                 </div>
 
             </div>

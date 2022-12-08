@@ -55,7 +55,7 @@ const Navigators = [
 
 function Orders() {
     const [order, setOrder] = useState([])
-    const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState(true);
     const token = useSelector(state => state.login.users.token)
     const [searchParams, setSearchParams] = useSearchParams();
     const [activeTab, setActiveTab] = useState("all");

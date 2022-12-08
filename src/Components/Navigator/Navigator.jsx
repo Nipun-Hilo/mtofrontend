@@ -14,9 +14,9 @@ function Navigator({ name, to }) {
   );
   useEffect(() => {
     setActive(window.location.pathname === to ? true : false);
-    console.log(window.location.pathname);
   }, [to]);
 
+  console.log(window.location.pathname === to);
   const navigate = useNavigate();
   return (
     <div>
