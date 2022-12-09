@@ -18,47 +18,47 @@ function CatalogueCard({ catalogue }) {
       Status: catalogue.status,
       Image: imageSrc
     });
-  },[]);
+  }, []);
 
 
   let nameArr = String(catalogue.title).split(" ");
   let typeArr = String(catalogue.product_type).split(" ");
   return (
-    <div onClick={(e)=>navigate(`/catalogue/${information.ProductID}`)}>
+    <div onClick={(e) => navigate(`/catalogue/${information.ProductID}`)}>
       <div className={styles.cardWrapper}>
-        <img src={information.Image} alt="Image not Found"/>
+        <img src={information.Image} alt="Image not Found" />
         <div className={styles.mainWrapper}>
-            <div className={styles.info}>
-              <div className={styles.lable}>Product Name</div>
-              <div className={styles.value}>{nameArr.length>2 ? nameArr[0] + " " + nameArr[1] + "..." : String(information.ProductName)}</div>
-            </div>
-            <div className={styles.info}>
-              <div className={styles.lable}>S K U</div>
-              <div className={styles.value}>{information.SKU}</div>
-            </div>
-            <div className={styles.info}>
-              <div className={styles.lable}>Price</div>
-              <div className={styles.value}>{information.Price}</div>
-            </div>
-          
-          
-            <div className={styles.info}>
-              <div className={styles.lable}>Product ID</div>
-              <div className={styles.value}>{information.ProductID}</div>
-            </div>
-            <div className={styles.info}>
-              <div className={styles.lable}>Type</div>
-              <div className={styles.value}>{typeArr.length>2 ? typeArr[0] + " " + typeArr[1] + "..." : String(information.typr)}</div>
-            </div>
+          <div className={styles.info}>
+            <div className={styles.lable}>Product Name</div>
+            <div className={styles.value}>{nameArr.length > 2 ? nameArr[0] + " " + nameArr[1] + "..." : String(information.ProductName)}</div>
+          </div>
+          <div className={styles.info}>
+            <div className={styles.lable}>S K U</div>
+            <div className={styles.value}>{information.SKU}</div>
+          </div>
+          <div className={styles.info}>
+            <div className={styles.lable}>Price</div>
+            <div className={styles.value}>{information.Price}</div>
+          </div>
 
-            <div className={styles.info}>
-              <div className={styles.lable}>Status</div>
-              <div className={styles.value}>{information.Status}</div>
-            </div>
+
+          <div className={styles.info}>
+            <div className={styles.lable}>Product ID</div>
+            <div className={styles.value}>{information.ProductID}</div>
+          </div>
+          <div className={styles.info}>
+            <div className={styles.lable}>Type</div>
+            <div className={styles.value}>{typeArr.length > 2 ? typeArr[0] + " " + typeArr[1] + "..." : String(information.Type)}</div>
+          </div>
+
+          <div className={styles.info}>
+            <div className={styles.lable}>Status</div>
+            <div className={styles.value}>{information.Status}</div>
           </div>
         </div>
       </div>
-    
+    </div>
+
   );
 }
 

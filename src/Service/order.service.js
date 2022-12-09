@@ -6,4 +6,9 @@ export const getOrders = async (token) => {
 
     return res.data
 };
+export const getOrdersById = async (order_id, token) => {
+    const res = await axios.get(`${GET_ORDERS_URL}/${order_id}`, { headers: { "Authorization": `Bearer ${token}` } });
+
+    return res.data
+};
 

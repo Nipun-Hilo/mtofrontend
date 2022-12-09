@@ -9,9 +9,9 @@ import styles from "./ProductionDetails.module.css";
 
 import CatalogueNavTab from "../../Components/CatalogueNavTab";
 import { useParams } from 'react-router-dom';
-import { getProductsById } from '../../Service/catalogue.service';
+import { getOrdersById } from '../../Service/order.service';
 
-import CatalogueDetailsCard from "../../Components/CatalogueDetailsCard"
+import ProductionDetailsCard from "../../Components/ProductionDetailsCard"
 
 const Navigators = [
     {
@@ -23,32 +23,16 @@ const Navigators = [
 ];
 
 const ProductionDetails = () => {
-    const [catalogue, setCatalogue] = useState({})
+    const [order, setOrder] = useState({})
     const [loading, setLoading] = useState(true);
     const token = useSelector(state => state.login.users.token)
-    const { product_id } = useParams();
-    const [searchParams, setSearchParams] = useSearchParams();
-    const [activeTab, setActiveTab] = useState("details");
-
-    console.log(token)
-
-    useEffect(() => {
-        const tab = searchParams.get('tab');
-        setActiveTab(tab || 'details');
-    }, [searchParams]);
-
-    useEffect(() => {
-        const params = new URLSearchParams(window.location.search);
-        params.set('tab', activeTab);
-        params.toString();
-        window.history.replaceState({}, '', `${window.location.pathname}?${params.toString()}`);
-    }, [activeTab])
+    const { order_id } = useParams();
 
     const fetchData = async () => {
         setLoading(true);
         try {
-            const response = await getProductsById(product_id, token);
-            setCatalogue(response.data.product);
+            const response = await getOrdersById(order_id, token);
+            setOrder(response.data.order);
         } catch (error) {
             console.error(error.message);
         }
@@ -61,39 +45,14 @@ const ProductionDetails = () => {
         fetchData();
     }, []);
 
-    const handleChangeTab = (value) => {
-        setActiveTab(value)
-    }
-
-    const renderContent = () => {
-        switch (activeTab) {
-            case 'details':
-                return <> {loading ? <><h1>loading</h1></> : <>
-                    <div className={styles.header2Wapper}>
-                        <div>
-                            <p className={styles.header}>{catalogue?.variants[0]?.sku}</p>
-                            <p className={styles.title}>{catalogue?.title}</p>
-                        </div>
-                        <button className={styles.btn}>Edit</button>
-                    </div>
-                    <div>
-
-                    </div>
-                    <div className={styles.topWrapper}>
-                        <CatalogueDetailsCard catalogue={catalogue || {}} />
-                    </div>
-                </>}</>
-            default:
-                break;
-        }
-    }
 
     return (
         <div>
             <div
                 style={{
                     display: "flex",
-                    flexDirection: "row"
+                    flexDirection: "row",
+                    overflowY: "hidden"
                 }}
             >
                 <SideBar />
@@ -101,8 +60,21 @@ const ProductionDetails = () => {
                     <div className={styles.header}>
                         Products
                     </div>
-                    <CatalogueNavTab handleChangeTab={handleChangeTab} Navigators={Navigators} activeTab={activeTab} />
-                    <div>{renderContent()}</div>
+                    <div>{loading ? <><h1>loading</h1></> : <>
+                        <div className={styles.header2Wapper}>
+                            <div className={styles.headerWrapper}>
+                                <button className={styles.headerBtn}>Custom</button>
+                                <button className={styles.headerBtn}>MTF</button>
+                            </div>
+                            <button className={styles.btn}>Edit</button>
+                        </div>
+                        <div>
+
+                        </div>
+                        <div className={styles.topWrapper}>
+                            <ProductionDetailsCard order={order || {}} />
+                        </div>
+                    </>}</div>
 
                 </div>
             </div>

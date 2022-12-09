@@ -7,7 +7,7 @@
 
 .cardWrapper {
 	width: 280px;
-	height: 502px;
+	height: 530px;
 	font-family: "montserrat", sans-serif;
 	background: #ffffff;
 	box-shadow: -2px 2px 9px rgba(0, 0, 0, 0.25);
@@ -39,7 +39,6 @@
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 	grid-auto-flow: dense;
-
 	/* border: 6px solid black; */
 }
 .infoWrapper {
@@ -51,7 +50,7 @@
 }
 .info {
 	display: grid;
-	margin: 15px;
+	margin: 10px;
 	margin-left: 25px;
 	width: auto;
 	grid-template-rows: 1fr 1fr;

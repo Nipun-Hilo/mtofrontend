@@ -5,7 +5,7 @@ import styles from "./Production.module.css";
 // Assets
 import searchIcon from "../../Assets/SearchBar/Icons/search.svg";
 // import CustomerCard from "../../Components/CustomerCard";
-import { getProducts } from "../../Service/catalogue.service"
+import { getOrders } from "../../Service/order.service"
 import ProductionCard from "../../Components/ProductionCard/ProductionCard";
 
 function Production() {
@@ -20,10 +20,10 @@ function Production() {
         const fetchData = async () => {
             setLoading(true);
             try {
-                const response = await getProducts(token);
-                console.log(response.data)
-                setProducts(response.data.products);
-                setFilteredProducts(response.data.products);
+                const response = await getOrders(token);
+                console.log(response.data.orders?.line_items?.title)
+                setProducts(response.data.orders);
+                setFilteredProducts(response.data.orders);
             } catch (error) {
                 console.error(error.message);
             }
@@ -31,7 +31,6 @@ function Production() {
         }
         fetchData();
     }, []);
-
 
     return (
         <div>
@@ -52,7 +51,7 @@ function Production() {
                                 setQuery(e.target.value);
                             }}
                         >
-                            <option value="productID">Product ID</option>
+                            <option value="id">Product ID</option>
                         </select>
                         <input
                             className={styles.searchInput}
@@ -76,8 +75,8 @@ function Production() {
                     </div>
                     {loading ? <><h1>loading</h1></> : <>
                         <div className={styles.catalogueCard}>
-                            {products.map((catalogue, index) => {
-                                return <ProductionCard key={index} catalogue={catalogue} />;
+                            {products.map((order, index) => {
+                                return <ProductionCard key={index} order={order} />;
                             })}
                             {filteredProducts.length === 0 && (
                                 <div className={styles.noCatalogue}>No Catalogue Found</div>

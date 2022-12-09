@@ -31,7 +31,6 @@ function Customer() {
     fetchData();
   }, []);
 
-
   return (
     <div>
       {" "}
@@ -51,8 +50,8 @@ function Customer() {
                 setQuery(e.target.value);
               }}
             >
-              <option value="customerID">Customer ID</option>
-              <option value="name">Name</option>
+              <option value="id">Customer ID</option>
+              <option value="first_name">Name</option>
               <option value="location">Location</option>
               <option value="phone">Phone</option>
               <option value="email">Email</option>
@@ -65,6 +64,7 @@ function Customer() {
               onChange={(e) => {
                 const value = e.target.value;
                 const filtered = customers.filter((customer) => {
+                  console.log(customer[query]);
                   return customer[query]
                     .toLowerCase()
                     .includes(value.toLowerCase());

@@ -25,7 +25,7 @@ function Row({ order }) {
             CustomerID: order.customer.id ? order.customer.id : "-",
             Date: order.created_at.split("T")[0],
             CustomerName: order.customer.first_name.split(" ")[0] + " " + order.customer.last_name.split(" ")[0],
-            Phone: order.customer.phone ? order.customer.phone : order.shipping_address.phone ? order.shipping_address.phone : "-",
+            Phone: order?.customer?.phone ? order?.customer?.phone : order?.shipping_address?.phone ? order?.shipping_address?.phone : "-",
             Channel: "_",
             Amount: order?.current_subtotal_price,
             Payment: order.financial_status ? order.financial_status : "-",
