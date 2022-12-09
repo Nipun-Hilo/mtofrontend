@@ -80,7 +80,10 @@ const ProductionDetailsCard = ({ order }) => {
                         </div>
 
                     </div>
-
+                    <div>
+                        <div className={styles.lable}>Custom Requirements</div>
+                        <input type="text" className={styles.customInput} />
+                    </div>
                 </div>
             </div>
         </div>

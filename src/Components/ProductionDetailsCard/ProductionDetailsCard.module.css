@@ -72,14 +72,6 @@
 	margin-top: 10px;
 	margin-bottom: 10px;
 }
-.tagWapper {
-	/* display: grid;
-    grid-template-columns: 1fr 1fr;
-    margin-left: -20px;
-    width: auto;
-    height: auto; */
-	/* border: 6px solid black; */
-}
 
 .tags {
 	display: flex;
@@ -98,4 +90,18 @@
 	font-size: 16px;
 	line-height: 17px;
 	color: #543925;
+}
+.customInput {
+	width: 550px;
+	height: 200px;
+	margin-top: 10px;
+	padding: 5px;
+	font-family: "Montserrat";
+	font-style: normal;
+	font-weight: 500;
+	font-size: 15px;
+	background-color: rgba(195, 153, 113, 0.1);
+	border: 0px #fff solid;
+	border-radius: 4px;
+	resize: vertical;
 }
