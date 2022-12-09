@@ -13,6 +13,7 @@ import CatalogueNavTab from "../../Components/CatalogueNavTab";
 import { useParams } from 'react-router-dom';
 import searchIcon from "../../Assets/SearchBar/Icons/search.svg";
 import { getProductsById } from '../../Service/catalogue.service';
+import CatalogueStyle from '../../Components/CatalogueStyle/CatalogueStyle';
 
 const Navigators = [
     {
@@ -103,7 +104,7 @@ const Catalogue = () => {
             case 'variants':
                 return <><CatalogueVariants catalogue={catalogue} /></>
             case 'style-details':
-                return <>style-details</>
+                return <><CatalogueStyle catalogue={catalogue} /></>
             default:
                 break;
         }

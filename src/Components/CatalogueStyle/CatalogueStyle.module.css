@@ -1,0 +1,91 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;800&display=swap");
+
+.topWrapper {
+	height: auto;
+	width: auto;
+	border-radius: 9px;
+	margin: 20px;
+	background: #ffffff;
+	box-shadow: -1px 1px 12px rgba(0, 0, 0, 0.25);
+	/* border: 20px solid black; */
+}
+.header {
+	font-family: "Montserrat", sans-serif;
+	font-weight: 600;
+	font-size: 25px;
+	padding: 20px;
+	color: #543925;
+}
+.title {
+	font-family: "Montserrat", sans-serif;
+	font-weight: 600;
+	font-size: 15px;
+	padding: 0px 20px 20px 20px;
+	color: #543925;
+}
+.mainWrapper {
+	width: 100%;
+	height: 100%;
+	/* padding-bottom: 20px; */
+}
+
+.header2Wapper {
+	display: flex;
+	justify-content: space-between;
+}
+
+.btn {
+	font-family: "Montserrat", sans-serif;
+	font-weight: 600;
+	height: 32px;
+	width: 70px;
+	margin: 20px 50px 20px 20px;
+	background-color: #c39971;
+	border-radius: 5px;
+}
+
+.noCatalogue {
+	font-weight: 600;
+	font-size: 14px;
+	line-height: 17px;
+	color: #bbbbbb;
+	margin: 0px;
+	margin-top: 2px;
+	margin-bottom: 2px;
+	font-family: "montserrat", sans-serif;
+}
+.lable {
+	display: flex;
+	color: #bbbbbb;
+	margin: 0px;
+	font-family: "Montserrat";
+	font-style: normal;
+	font-weight: 600;
+	width: 20%;
+	font-size: 18px;
+	align-items: center;
+}
+.itemInput {
+	width: 705px;
+	height: 32px;
+	padding: 5px;
+	font-family: "Montserrat";
+	font-style: normal;
+	font-weight: 500;
+	font-size: 15px;
+	background-color: #efefef;
+	border: 0px #fff solid;
+	border-radius: 12px;
+}
+.itemWrapper {
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
+	align-items: center;
+	margin: 39px 39px 39px 0px;
+}
+.MainItemWrapper {
+	display: flex;
+	flex-direction: column;
+	padding: 20px;
+}
