@@ -60,7 +60,7 @@ function App() {
         <Route exact path="/production" element={<PrivateRoute>
           <Production />
         </PrivateRoute>} />
-        <Route exact path="/production/:order_id" element={<PrivateRoute>
+        <Route exact path="/production/:order_id/:item_id" element={<PrivateRoute>
           <ProductionDetails />
         </PrivateRoute>} />
 

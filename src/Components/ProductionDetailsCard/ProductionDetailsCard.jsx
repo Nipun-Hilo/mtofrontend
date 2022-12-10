@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import styles from "./ProductionDetailsCard.module.css";
-const ProductionDetailsCard = ({ order }) => {
+const ProductionDetailsCard = ({ order, item_id }) => {
     const [information, setInformation] = useState({});
+    const [item, setItem] = useState({});
     useEffect((e) => {
         setInformation({
             Stage: "_",
@@ -17,6 +18,12 @@ const ProductionDetailsCard = ({ order }) => {
             Platform: "_",
         });
     }, []);
+
+    useEffect(() => {
+        setItem((order?.line_items.filter((item) => { return item.id !== item_id }))[0])
+    }, [])
+    // console.log(item[0]);
+
     return (
         <div>
             <div className={styles.topWrapper}>
@@ -27,8 +34,8 @@ const ProductionDetailsCard = ({ order }) => {
                 <div className={styles.detailsWrapper}>
                     <div className={styles.mainDetailsWrapper}>
                         <div>
-                            <p className={styles.header}>{"HILO3196-P1"}</p>
-                            <p className={styles.title}>{"DJ Tillu Kurta"}</p>
+                            <p className={styles.header}>{item?.sku}</p>
+                            <p className={styles.title}>{item?.title}</p>
                         </div>
                         <div>&nbsp;</div>
                         <div>&nbsp;</div>
@@ -39,15 +46,15 @@ const ProductionDetailsCard = ({ order }) => {
                         </div>
                         <div className={styles.info}>
                             <div className={styles.lable}>Product Name</div>
-                            <div className={styles.value}>{information.ProductName}</div>
+                            <div className={styles.value}>{item?.title}</div>
                         </div>
                         <div className={styles.info}>
                             <div className={styles.lable}>Size</div>
-                            <div className={styles.value}>{information.Size}</div>
+                            <div className={styles.value}>{item?.variant_title}</div>
                         </div>
                         <div className={styles.info}>
                             <div className={styles.lable}>S K U</div>
-                            <div className={styles.value}>{information.SKU}</div>
+                            <div className={styles.value}>{item?.sku}</div>
                         </div>
                         <div className={styles.info}>
                             <div className={styles.lable}>CustomerID</div>

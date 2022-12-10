@@ -20,7 +20,7 @@ const ProductionDetails = () => {
     const [loading, setLoading] = useState(true);
     const [mtf, setMtf] = useState(false);
     const token = useSelector(state => state.login.users.token)
-    const { order_id } = useParams();
+    const { order_id, item_id } = useParams();
     const navigate = useNavigate();
 
     const fetchData = async () => {
@@ -39,12 +39,16 @@ const ProductionDetails = () => {
         fetchData();
     }, []);
 
+
+
+
     const onMTFClick = (e) => {
         setMtf(true);
     }
     const onCustomClick = (e) => {
         setMtf(false);
     }
+
 
     return (
         <div>
@@ -83,7 +87,7 @@ const ProductionDetails = () => {
                         }}>
                             <div className={styles.lowerHeader}>Details</div>
                             <div className={styles.topWrapper}>
-                                {!mtf ? <ProductionDetailsCard order={order || {}} /> : <ProductionMTF />}
+                                {!mtf ? <ProductionDetailsCard order={order || {}} item_id={item_id} /> : <ProductionMTF />}
                             </div>
                         </div>
                     </>}</div>
